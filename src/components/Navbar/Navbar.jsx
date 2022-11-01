@@ -15,15 +15,41 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import { useNavigate } from 'react-router-dom';
 
 
-const pages = ['Books', "Favourites", "Genre", 'Add Book'];
-const settings = ['Register', 'Login', 'Logout'];
+const pages = [
+  {
+    type: 'Books',
+    path: '/books'
+  },
+  {
+    type: 'Favourites',
+    path: '/fav'
+  },
+  {
+    type: 'Add book',
+    path: '/add'
+  }
+]
+
+const settings = [
+  {
+    type: 'Register',
+    path: '/register'
+  },
+  {
+    type: 'Login',
+    path: '/login'
+  }
+]
 
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -83,7 +109,7 @@ function ResponsiveAppBar() {
   }));
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{background: '#09387f'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -135,8 +161,8 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.type} onClick={() => navigate(page.path)}>
+                  <Typography textAlign="center">{page.type}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -163,16 +189,16 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page.type}
+                onClick={() => navigate(page.path)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                {page.type}
               </Button>
             ))}
           </Box>
           <Box>
-          <Search>
+          <Search sx={{marginRight: '15%'}}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -205,8 +231,8 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <MenuItem key={setting.type} onClick={() => navigate(setting.path)}>
+                  <Typography textAlign="center">{setting.type}</Typography>
                 </MenuItem>
               ))}
             </Menu>

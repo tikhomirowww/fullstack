@@ -1,0 +1,8 @@
+#bg {
+    width: 100%;
+    max-height: 90.5vh;
+    filter:brightness(90%);
+    position: absolute;
+    z-index: -1;
+    left: 0;
+}
