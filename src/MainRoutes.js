@@ -10,11 +10,13 @@ import HomePage from './Pages/HomePage'
 import BookDetailsPage from './Pages/BookDetailsPage'
 import BooksPage from './Pages/BooksPage'
 import NotFoundPage from './Pages/NotFoundPage'
+import Background from './components/Background/Background'
 
 const MainRoutes = () => {
   return (
     <>
     <Navbar/>
+    <Background />
   <Routes>
     <Route path='/register' element={<RegisterPage/>}/>
     <Route path='/login' element={<LoginPage/>}/>
