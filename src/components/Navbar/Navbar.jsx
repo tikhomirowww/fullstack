@@ -16,6 +16,7 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from 'react-router-dom';
+import AutoStoriesRoundedIcon from '@mui/icons-material/AutoStoriesRounded';
 
 
 const pages = [
@@ -112,24 +113,8 @@ function ResponsiveAppBar() {
     <AppBar position="static" sx={{background: '#09387f'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Books
-          </Typography>
+
+        <AutoStoriesRoundedIcon onClick={() => navigate('/')} fontSize='large' sx={{marginRight: '4%'}} />
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
