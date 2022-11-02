@@ -16,7 +16,7 @@ const MainRoutes = () => {
   return (
     <>
     <Navbar/>
-    <Background />
+    <Background style={{position: 'absolute'}} />
   <Routes>
     <Route path='/register' element={<RegisterPage/>}/>
     <Route path='/login' element={<LoginPage/>}/>
