@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,6 +17,7 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from 'react-router-dom';
 import AutoStoriesRoundedIcon from '@mui/icons-material/AutoStoriesRounded';
+import { useAuth } from '../../contexts/AuthContextProvider';
 
 
 const pages = [
@@ -49,6 +50,8 @@ const settings = [
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const { currentUser, handleLogout } = useAuth();
 
   const navigate = useNavigate();
 
@@ -220,6 +223,9 @@ function ResponsiveAppBar() {
                   <Typography textAlign="center">{setting.type}</Typography>
                 </MenuItem>
               ))}
+                <MenuItem onClick={() => handleLogout(navigate)}>
+                  <Typography textAlign="center">Logout</Typography>
+                </MenuItem>
             </Menu>
           </Box>
         </Toolbar>

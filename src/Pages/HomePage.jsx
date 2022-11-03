@@ -209,7 +209,6 @@ const HomePage = () => {
       ))}
     </Box>
     </div>
-  </div>
   )
 }
 

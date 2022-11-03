@@ -12,6 +12,8 @@ import { useAuth } from '../contexts/AuthContextProvider';
 const RegisterPage = () => {
   const { handleRegister, error, setError, loading } = useAuth();
 
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -26,10 +28,10 @@ const RegisterPage = () => {
         formData.append("email", email);
         formData.append("password", password);
         formData.append("password2", passConf);
-        handleRegister(formData)
+        handleRegister(formData, navigate);
     }
   };
-  
+
   useEffect(() => {
     setError(false)
   }, []);
@@ -65,10 +67,10 @@ const RegisterPage = () => {
         autoComplete="off"
       >
        <ThemeProvider theme={theme}>
-       <TextField  id="standard-basic" onChange={(e) => setUsername(e.target.value)} value={username} label="Username" variant="standard" />
-       <TextField type="email" id="standard-basic" onChange={(e) => setEmail(e.target.value)} value={email} label="Email" variant="standard" />
-       <TextField type="password" id="standard-basic" onChange={(e) => setPassword(e.target.value)} value={password} label="Password" variant="standard" />
-       <TextField type="password" id="standard-basic" onChange={(e) => setPassConf(e.target.value)} value={passConf} label="Password confirmation" variant="standard" />
+       <TextField  onChange={(e) => setUsername(e.target.value)} value={username} label="Username" variant="standard" />
+       <TextField type="email" onChange={(e) => setEmail(e.target.value)} value={email} label="Email" variant="standard" />
+       <TextField type="password" onChange={(e) => setPassword(e.target.value)} value={password} label="Password" variant="standard" />
+       <TextField type="password" onChange={(e) => setPassConf(e.target.value)} value={passConf} label="Password confirmation" variant="standard" />
        </ThemeProvider>
       <Button onClick={handleSave} sx={{background: '#09387f', borderRadius: '20px'}} variant="contained">Register</Button>
       </Box>
