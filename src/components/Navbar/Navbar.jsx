@@ -117,7 +117,7 @@ function ResponsiveAppBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
 
-        <a href=""><AutoStoriesRoundedIcon  onClick={() => navigate('/')} fontSize='large' sx={{marginRight: '4%', color: 'white'}}/></a>
+        <a href=""><AutoStoriesRoundedIcon  onClick={() => navigate('/')} fontSize='large' sx={{marginRight: '4%', color: '#f0c33b'}}/></a>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -149,7 +149,7 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.type} onClick={() => navigate(page.path)}>
+                <MenuItem style={{color: '#f0c33b'}} key={page.type} onClick={() => navigate(page.path)}>
                   <Typography textAlign="center">{page.type}</Typography>
                 </MenuItem>
               ))}
@@ -179,14 +179,14 @@ function ResponsiveAppBar() {
               <Button
                 key={page.type}
                 onClick={() => navigate(page.path)}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block', color: '#f0c33b' }}
               >
                 {page.type}
               </Button>
             ))}
           </Box>
           <Box>
-          <Search sx={{marginRight: '15%'}}>
+          <Search sx={{marginRight: '15%', color: '#f0c33b'}}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
