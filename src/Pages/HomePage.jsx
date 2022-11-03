@@ -82,7 +82,7 @@ const HomePage = () => {
         </div>
       </div>
     </div>
-    {/* <Box
+    <Box
       sx={{
         display: 'flex',
         gap: 1,
@@ -122,7 +122,7 @@ const HomePage = () => {
           </Box>
         </Card>
       ))}
-    </Box> */}
+    </Box>
   </div>
   )
 }
