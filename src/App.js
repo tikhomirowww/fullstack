@@ -10,7 +10,9 @@ const App = () => {
   return (
     <>
     <BrowserRouter>
+    {/* <AuthContextProvider> */}
     <MainRoutes/>
+    {/* </AuthContextProvider> */}
     </BrowserRouter>
     </>
   )
