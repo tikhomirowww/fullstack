@@ -41,9 +41,9 @@ const HomePage = () => {
 
   const data = [
     {
-      src: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236',
-      title: 'Night view',
-      description: '4.21M views',
+      src: 'https://cdn.ast.ru/v2/ASE000000000843586/COVER/cover1__w340.jpg',
+      title: 'Собачье серце',
+      description: 'qwerty',
     },
     {
       src: 'https://images.unsplash.com/photo-1527549993586-dff825b37782',
@@ -129,19 +129,19 @@ const HomePage = () => {
   
 
   return (
-    <div style={{displey: 'flex', flexDirection: 'column' }}>
-    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '15vh', background: 'rgb(211, 217, 238, .3)', color: '#f0c33b', fontSize: '23px', width: '70%', borderRadius: '20px', margin: ''}}className="center">
+    <div style={{displey: 'flex', flexDirection: 'column', paddingTop: '2%' }}>
+    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '15vh', background: 'rgb(11,	83,	148, .7)', color: '#f0c33b', fontSize: '20px', width: '50%', borderRadius: '20px', margin: 'auto'}}className="center">
       <h1>Your Guide To The World Of Knowledge</h1>
     </div>
-    <div style={{display: 'flex', justifyContent: "space-around", alignItems: 'center', height: '50vh' }}>
-      <div className="leftBlock"  style={{color: '#eb056a', fontSize: '20px'}}>
-        <h2>Just Download The Applications And <br/> Together We Will Open New Horizons</h2>
-        <div style={{fontSize: '100px'}}>
+    <div style={{display: 'flex', justifyContent: "space-around", alignItems: 'center', height: '50vh', paddingTop: '4%' }}>
+      <div className="leftBlock"  style={{color: '#f0c33b',  background: 'rgb(11,	83,	148, .7)', fontSize: '18px', textAlign: 'center', padding: '2%', borderRadius: '20px'}}>
+        <h2 style={{padding: '3%'}}>Just Download The Applications <br/> And  Together We Will Open New Horizons</h2>
+        <div style={{fontSize: '80px'}}>
         <a href="#"> <img src="https://maratapiev.github.io/projectgid/img/Badges%20RUSSIAN%20(1).png" alt="" /></a>
         <a href="#"> <img src="https://maratapiev.github.io/projectgid/img/Badges%20RUSSIAN.png" alt="" /></a>
         </div>
       </div>
-      <div className='rightBlock' style={{color: '#f0c33b'}}>
+      <div className='rightBlock' style={{background: 'rgb(11,	83,	148, .7)', color: '#f0c33b', padding: '2%', borderRadius: '20px'}}>
         <div className='title'>
         <h2 style={{textAlign: 'center', fontSize: '30px'}}>Read What Ever You Want <br/>
         Where Ever You Want!</h2>
@@ -162,12 +162,12 @@ const HomePage = () => {
       </div>
     </div>
     </div>
-    <div style={{display: 'flex', justifyContent: 'center', paddingTop: '30px'}}>
+    <div style={{display: 'flex', justifyContent: 'center', paddingTop: '40px', height: '170px'}}>
     <Box
+    fontSize='large'
       sx={{
-        background: '#f0c33b',
-        borderRadius: '20px',
-        background: '#f0c33b',
+        background: 'rgb(11,	83,	148, .9)',
+        color: '#f0c33b',
         borderRadius: '20px',
         display: 'flex',
         gap: 1,
