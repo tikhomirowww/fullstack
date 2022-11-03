@@ -117,7 +117,7 @@ function ResponsiveAppBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
 
-        <AutoStoriesRoundedIcon onClick={() => navigate('/')} fontSize='large' sx={{marginRight: '4%'}} />
+        <a href=""><AutoStoriesRoundedIcon  onClick={() => navigate('/')} fontSize='large' sx={{marginRight: '4%', color: 'white'}}/></a>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton

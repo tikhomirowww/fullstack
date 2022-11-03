@@ -11,7 +11,9 @@ const App = () => {
     <>
     <AuthContextProvider>
     <BrowserRouter>
+    {/* <AuthContextProvider> */}
     <MainRoutes/>
+    {/* </AuthContextProvider> */}
     </BrowserRouter>
     </AuthContextProvider>
     </>

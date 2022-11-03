@@ -11,6 +11,7 @@ import { useAuth } from '../contexts/AuthContextProvider';
 
 const RegisterPage = () => {
   const { handleRegister, error, setError, loading } = useAuth();
+
   const navigate = useNavigate();
 
   const [username, setUsername] = useState('');

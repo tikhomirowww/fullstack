@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
-// import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export const authContext = React.createContext();
 export const useAuth = () => useContext(authContext);
+
 
 const API = 'http://34.73.108.209/api/v1/'
 
@@ -30,6 +30,7 @@ const AuthContextProvider = ({ children}) => {
         setLoading(false);
     };
   };
+
 
    //login 
    async function handleLogin(formData, email, navigate){
