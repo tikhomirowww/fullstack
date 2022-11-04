@@ -22,7 +22,7 @@ const AddBooks = () => {
     newBook.append("title", title);
     newBook.append("description", description);
     newBook.append("price", price);
-    newBook.append("category", category);
+    newBook.append("category", category.toLowerCase());
     newBook.append("text", text);
     newBook.append("image", image)
     createBook(newBook, navigate);

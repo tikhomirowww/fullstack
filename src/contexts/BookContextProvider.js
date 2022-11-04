@@ -52,7 +52,7 @@ const BookContextProvider = ({ children }) => {
           const res = await axios(`${API}books/${window.location.search}`, config);
     
           dispatch({
-            type: 'GET_PRODUCTS',
+            type: 'GET_BOOKS',
             payload: res.data
           })
         } catch (err) {
