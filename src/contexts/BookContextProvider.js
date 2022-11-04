@@ -13,7 +13,7 @@ const INIT_STATE = {
 
 function reducer(state=INIT_STATE, action){
     switch(action.type){
-      case 'GET_BOOKS':
+      case 'GET_PRODUCTS':
         return{
           ...state,
           books: action.payload.results,
@@ -52,7 +52,7 @@ const BookContextProvider = ({ children }) => {
           const res = await axios(`${API}books/${window.location.search}`, config);
     
           dispatch({
-            type: 'GET_BOOKS',
+            type: 'GET_PRODUCTS',
             payload: res.data
           })
         } catch (err) {

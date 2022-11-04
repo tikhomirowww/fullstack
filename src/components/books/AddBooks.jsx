@@ -60,7 +60,7 @@ const AddBooks = () => {
        <TextField onChange={(e) => setCategory(e.target.value)} value={category} label="Category" variant="standard" />
        <TextField onChange={(e) => setDescription(e.target.value)} value={description} label="Description" variant="standard" />
        <TextField onChange={(e) => setPrice(e.target.value)} value={price} label="Price" variant="standard" />
-       <TextField onChange={(e) => setText(e.target.value)} value={text} label="Text" variant="standard" />
+       <TextField type="url" onChange={(e) => setText(e.target.value)} value={text} label="Text" variant="standard" />
        <Button sx={{background: '#09387f', borderRadius: '20px'}} onChange={e => setImage(e.target.files[0])} variant="contained" component="label">
         Upload image
         <input hidden accept="image/*" multiple type="file" />
@@ -75,3 +75,4 @@ const AddBooks = () => {
 }
 
 export default AddBooks
+
