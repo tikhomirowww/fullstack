@@ -22,7 +22,7 @@ const BookList = () => {
       <h2>book list</h2>
       <div style={{width: '100%', height: '30%',}} >
         {books?.map((item) =>( 
-          <BookCard key={item.title} item={item}></BookCard>       
+          <BookCard key={item.id} item={item}></BookCard>       
         ))} 
       </div>
     </div>

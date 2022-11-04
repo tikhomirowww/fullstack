@@ -5,45 +5,29 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import BookmarkRoundedIcon from '@mui/icons-material/BookmarkRounded';
 
 const BookCard = ({ item }) => {
   return (
-    <div style={{heigth: ' 30%', display: 'flex', background: '#09387f', borderRadius: '20px', margin: '2%', padding: "2%", color: '#f0c33b' }}>
-    <div style={{}} className='leftBlock'>
-      <img src={item.image} alt="error;)" style={{width: '100px', height: '100px'}} />
-    </div>
-    <div className='rightBlock'>
-      <h3>{item.title}</h3>
-      <h4>{item.owner}</h4>
-      {/* <h5>{item.rating}</h5> */}
-      <p>{item.description}</p>
-    </div>
-    </div>
-    // <div style={{display: 'flex', width: '100%', justifyContent: 'flex-start'}}>
-    // <Card sx={{ width: '100%', display: 'flex' }}>
-    //   <CardActionArea sx={{ display: 'flex' }}>
-    //     <CardMedia
-    //       sx={{width: '10%', justifyContent: 'flex-start'}}
-    //       component="img"
-    //       height="100"
-    //       width="100"
-    //       image={item.image}
-    //       alt="book image"
-    //     />
-    //     <CardContent>
-    //       <Typography gutterBottom variant="h5" component="div">
-    //       {item.title}
-    //       </Typography>
-    //       <Typography variant="body2" color="text.secondary">
-    //         {item.price}
-    //       </Typography>
-    //       <Typography gutterBottom variant="h5" component="div">
-    //       {item.description}
-    //       </Typography>
-    //     </CardContent>
-    //   </CardActionArea>
-    // </Card>
-    // </div>
+  <div style={{heigth: ' 30%', display: 'flex', background: '#09387f', borderRadius: '20px', margin: '2%', padding: "1%", color: '#f0c33b', width: '95vw' }}>
+      <div style={{}} className='leftBlock'>
+        <img src={item.image} alt="error;)" style={{width: '100px', height: '100px', borderRadius: '10px'}} />
+      </div>
+      <div className='rightBlock' style={{width: '100%', marginLeft: '2%'}}>
+          <div style={{display: 'flex', justifyContent: 'space-between'}}>
+          <h3>{item.title}</h3>
+          <BookmarkRoundedIcon />
+          </div>
+          <h4>Author: {item.owner}</h4>
+          {/* <h5>{item.rating}</h5> */}
+          <p>Description: <br/>{item.description}</p>
+          <div style={{display: 'flex', gap: '2%'}} className='buttons'>
+            <button>Edit</button>
+            <button>Delete</button>
+            <button>Add to cart</button>
+          </div>
+      </div>
+  </div>
   )
 }
 
