@@ -18,9 +18,9 @@ const BookList = () => {
   console.log(books);
 
   return (
-    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>
+    <div style={{display: 'flex', height: '30%', flexDirection: 'column', alignItems: 'flex-start'}}>
       <h2>book list</h2>
-      <div style={{width: '100%'}} >
+      <div style={{width: '100%', height: '30%',}} >
         {books?.map((item) =>( 
           <BookCard key={item.title} item={item}></BookCard>       
         ))} 
