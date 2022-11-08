@@ -15,7 +15,6 @@ const FavPage = () => {
     console.log(fav);
   }, []);
 
-
   return (
     <>
     <div style={{display: 'flex', flexWrap: 'wrap', }}>

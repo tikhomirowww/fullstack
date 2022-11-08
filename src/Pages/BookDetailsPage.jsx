@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import BookDetails from '../components/books/BookDetails'
 
 const BookDetailsPage = () => {
   return (
-    <div>BookDetailsPage</div>
+    <>
+    <BookDetails />
+    </>
   )
 }
 
