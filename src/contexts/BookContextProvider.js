@@ -8,7 +8,7 @@ const INIT_STATE = {
     books: [],
     pages: 0,
     categories:[],
-    oneBook: null
+    bookDetails: null
 };
 
 function reducer(state=INIT_STATE, action){
@@ -24,9 +24,9 @@ function reducer(state=INIT_STATE, action){
           ...state,
           categories: action.payload
         };
-      case 'GET_ONE_BOOK':
+      case 'GET_BOOK_DETAILS':
         return {
-          ...state, oneBook: action.payload
+          ...state, bookDetails: action.payload
         };
       default:
         return state;
@@ -42,6 +42,7 @@ const BookContextProvider = ({ children }) => {
     async function getBooks(){
         try {
           const tokens = JSON.parse(localStorage.getItem('tokens'));
+          console.log(tokens);
           const Authorization = `JWT ${tokens.access}`;
           const config = {
             headers: {
@@ -80,14 +81,49 @@ const BookContextProvider = ({ children }) => {
     };
   };
 
+  //details/update
+
+  async function getBookDetails(id){
+    try{
+      const res = await axios(`${API}books/${id}/`)
+      dispatch ({
+        type: 'GET_BOOK_DETAILS',
+        payload: res.data
+      })
+    }catch (err){
+      console.log(err);
+    }
+  }
+
+  //delete
+  
+  async function deleteBook(id){
+    try{
+      const tokens = JSON.parse(localStorage.getItem('tokens'));
+      const Authorization = `JWT ${tokens.access}`;
+      const config = {
+        headers: {
+          Authorization
+        }
+      }
+      await axios.delete(`${API}books/${id}/`, config);
+      getBooks();
+    } catch(err){
+      console.log(err);
+    };
+  };
+  
+
   const values = {
     books: state.books,
     categories: state.categories,
     pages: state.pages,
-    oneBook: state.oneBook,
+    bookDetails: state.bookDetails,
 
     getBooks,
-    createBook
+    createBook,
+    deleteBook,
+    getBookDetails
   }
 
   return (
