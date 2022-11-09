@@ -13,6 +13,7 @@ import Fab from '@mui/material/Fab';
 import EditIcon from '@mui/icons-material/Edit';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import Tooltip from '@mui/material/Tooltip';
 
 
 const BookCard = ({ item }) => {
@@ -29,11 +30,15 @@ const BookCard = ({ item }) => {
   return (
   <div style={{ display: 'flex', background: '#09387f', borderRadius: '20px', margin: '1%', padding: "1%", color: '#f0c33b', width: '95vw', fontSize: '16px' }}>
       <div className='leftBlock'>
-        <img src={item.image} alt="error;)" style={{width: '170px', height: '150px', borderRadius: '10px'}} />
+      <Tooltip title="Details" placement='top'>
+        <img onClick={() => navigate(`/details/${item.id}`)} src={item.image} alt="error;)" style={{width: '170px', height: '150px', borderRadius: '10px'}} />
+      </ Tooltip >
       </div>
       <div className='rightBlock' style={{width: '100%', marginLeft: '2%'}}>
           <div style={{display: 'flex', justifyContent: 'space-between'}}>
-          <h3>{item.title}</h3>
+          <Tooltip title="Details" placement='top'>
+          <h3 onClick={() => navigate(`/details/${item.id}`)}>{item.title}</h3>
+          </Tooltip>
           <div onClick={() => favClick(item)}>
           <BookmarkRoundedIcon />
           </div>
@@ -41,12 +46,11 @@ const BookCard = ({ item }) => {
           <h4>Author: {item.owner}</h4>
           {/* <h5>{item.rating}</h5> */}
           <p>Description: <br/>{item.description}</p>
-          <div style={{display: 'flex', gap: '2%', padding: '7px'}} className='buttons'>
+          <div style={{display: 'flex', gap: '2%', padding: '7px', zIndex: '1'}} className='buttons'>
           <Fab onClick={() => navigate(`/edit/${item.id}`)} color="warning" aria-label="edit"><EditIcon /></Fab>
           <Button onClick={() => deleteBook(item.id)} style={{color: '#f0c33b'}} variant="outlined" startIcon={<DeleteIcon />}>Delete</Button>
           <Button style={{color: '#09387f', background: '#f0c33b'}} variant="contained"><ShoppingBasketIcon /></Button>
           <Fab style={{color: '#f0c33b'}} disabled aria-label="like"><FavoriteIcon /></Fab>
-          <button onClick={() => navigate(`/details/${item.id}`)}>Details</button>
           </div>
       </div>
   </div>

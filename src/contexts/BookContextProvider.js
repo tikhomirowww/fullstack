@@ -1,4 +1,5 @@
 import React, { useReducer, useContext } from 'react';
+// import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export const booksContext = React.createContext();
@@ -16,7 +17,7 @@ function reducer(state=INIT_STATE, action){
       case 'GET_PRODUCTS':
         return{
           ...state,
-          books: action.payload.results,
+          books: action.payload,
           pages: Math.ceil(action.payload.count / 5)
         };
       case 'GET_CATEGORIES':
@@ -39,6 +40,8 @@ function reducer(state=INIT_STATE, action){
 const BookContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
+  // const navigate = useNavigate()
+
     async function getBooks(){
         try {
           const tokens = JSON.parse(localStorage.getItem('tokens'));
@@ -56,16 +59,17 @@ const BookContextProvider = ({ children }) => {
             type: 'GET_PRODUCTS',
             payload: res.data
           })
+          console.log(state.book);
         } catch (err) {
           console.log(err);
         };
       };
 
-//create
+ //create
   async function createBook(newBook, navigate){
     try { 
       const tokens = JSON.parse(localStorage.getItem('tokens'));
-      const Authorization = `Bearer ${tokens.access}`;
+      const Authorization = `JWT ${tokens.access}`;
       const config = {
         headers: {
           Authorization
@@ -74,7 +78,7 @@ const BookContextProvider = ({ children }) => {
 
       const res = await axios.post(`${API}books/`, newBook, config);
       console.log(res);
-      navigate('/books');
+      navigate('/books')
       getBooks();
     } catch(err) {
       console.log(err);
@@ -93,6 +97,26 @@ const BookContextProvider = ({ children }) => {
     }catch (err){
       console.log(err);
     }
+  }
+
+  const saveEditedBook = async (newBook, id) => {
+    
+    try { 
+      const tokens = JSON.parse(localStorage.getItem('tokens'));
+      const Authorization = `JWT ${tokens.access}`;
+      const config = {
+        headers: {
+          Authorization
+        }
+      }
+
+      await axios.patch(`${API}books/${id}/`, newBook, config);
+      getBooks();
+      // navigate('/books')
+      console.log(newBook);
+    } catch(err) {
+      console.log(err);
+    };
   }
 
   //delete
@@ -123,7 +147,8 @@ const BookContextProvider = ({ children }) => {
     getBooks,
     createBook,
     deleteBook,
-    getBookDetails
+    getBookDetails,
+    saveEditedBook
   }
 
   return (
