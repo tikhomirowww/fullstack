@@ -8,6 +8,7 @@ import { useBooks } from '../../contexts/BookContextProvider';
 
 const AddBooks = () => {
   const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('')
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
@@ -20,6 +21,7 @@ const AddBooks = () => {
   function handleSave(){
     let newBook = new FormData();
     newBook.append("title", title);
+    newBook.append("author_name", author);
     newBook.append("description", description);
     newBook.append("price", price);
     newBook.append("category", category.toLowerCase());
@@ -57,6 +59,7 @@ const AddBooks = () => {
       >
        <ThemeProvider theme={theme}>
        <TextField  onChange={(e) => setTitle(e.target.value)} value={title} label="Title" variant="standard" />
+       <TextField  onChange={(e) => setAuthor(e.target.value)} value={author} label="Author" variant="standard" />
        <TextField onChange={(e) => setCategory(e.target.value)} value={category} label="Category" variant="standard" />
        <TextField onChange={(e) => setDescription(e.target.value)} value={description} label="Description" variant="standard" />
        <TextField onChange={(e) => setPrice(e.target.value)} value={price} label="Price" variant="standard" />
