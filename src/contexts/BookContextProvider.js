@@ -59,7 +59,7 @@ const BookContextProvider = ({ children }) => {
             type: 'GET_PRODUCTS',
             payload: res.data
           })
-          console.log(state.book);
+          console.log(state.books);
         } catch (err) {
           console.log(err);
         };

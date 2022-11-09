@@ -24,6 +24,8 @@ const EditBooks = () => {
   const [book, setBook] = useState(bookDetails);
   const { id } = useParams()
 
+// console.log(book.image);
+
   const navigate = useNavigate();
 
  useEffect(() => {
@@ -36,11 +38,25 @@ const EditBooks = () => {
  }, [bookDetails, ])
 
  const handleInp = e => {
+  if(e.target.name === 'price'){
+    let obj = {
+      ...book,
+      [e.target.name]: Number(e.target.value)
+    }
+      setBook(obj)
+  } else if (e.target.name === 'image'){
+    let obj = {
+      ...book,
+      [e.target.name]: e.target.files[0],
+    }
+      setBook(obj);
+  } else {
   let obj = {
       ...book,
       [e.target.name]: e.target.value
   };
   setBook(obj)
+  }
 }
 
 const handleSave = () => {
@@ -52,13 +68,10 @@ const handleSave = () => {
   newBook.append("category", book.category.toLowerCase());
   newBook.append("text", book.text);
   newBook.append("image", book.image);
-  // let book2 = {
-  //   ...newBook,
-  // }
-  // book2.id = id;
-  // console.log(newBook)
-  saveEditedBook(newBook, id);
-  navigate('/books');
+console.log(newBook);
+  return newBook;
+  // saveEditedBook(newBook, id);
+  // 
 }
 
 
@@ -88,13 +101,14 @@ const handleSave = () => {
     <TextField name='description' onChange={handleInp} value={book.description} label="Description" variant="standard" />
     <TextField name='price' onChange={handleInp} value={book.price} label="Price" variant="standard" />
     <TextField name='text' type="url" onChange={handleInp} value={book.text} label="Text" variant="standard" />
-    <Button sx={{background: '#09387f', borderRadius: '20px'}} value={book.image} onChange={handleInp} variant="contained" component="label">
+    <Button  sx={{background: '#09387f', borderRadius: '20px'}} value={book.image} onChange={handleInp} variant="contained" component="label">
      Upload image
-     <input hidden accept="image/*" multiple type="file" />
+     <input name='image' hidden accept="image/*" multiple type="file" />
    </Button>
     </ThemeProvider>
    <Button onClick={() => {
-    handleSave()
+    saveEditedBook(handleSave(), id);
+    navigate('/books');
    }} sx={{background: '#09387f', borderRadius: '20px'}} variant="contained">Edit</Button>
    </Box>
    </div>
