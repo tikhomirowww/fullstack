@@ -30,7 +30,7 @@ const BookCard = ({ item }) => {
   }
 
   let currentEmail = localStorage.getItem("email");
-  console.log(currentEmail);
+  // console.log(currentEmail);
 
 console.log(item.owner, 'owner');
 console.log(currentUser);
