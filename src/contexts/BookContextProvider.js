@@ -1,5 +1,5 @@
 import React, { useReducer, useContext } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 export const booksContext = React.createContext();
@@ -41,6 +41,7 @@ const BookContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   // const navigate = useNavigate()
+ 
 
     async function getBooks(){
         try {
@@ -53,6 +54,8 @@ const BookContextProvider = ({ children }) => {
             }
           }
     
+          // const location = useLocation();
+
           const res = await axios(`${API}books/${window.location.search}`, config);
     
           dispatch({
@@ -84,6 +87,27 @@ const BookContextProvider = ({ children }) => {
       console.log(err);
     };
   };
+
+  // //categories
+
+  // async function getCategories(){
+  //   try {
+  //     const tokens = JSON.parse(localStorage.getItem('tokens'));
+  //     const Authorization = `JWT ${tokens.access}`;
+  //     const config = {
+  //       headers: {
+  //         Authorization
+  //       }
+  //     }
+  //     const res = await axios(`${API}categories/`, config);
+  //     dispatch({
+  //       type: 'GET_CATEGORIES',
+  //       payload: res.data.results
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //   };
+  // };
 
   //details/update
 
@@ -148,7 +172,8 @@ const BookContextProvider = ({ children }) => {
     createBook,
     deleteBook,
     getBookDetails,
-    saveEditedBook
+    saveEditedBook,
+    // getCategories
   }
 
   return (

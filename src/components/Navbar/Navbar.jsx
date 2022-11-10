@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -18,6 +19,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from 'react-router-dom';
 import AutoStoriesRoundedIcon from '@mui/icons-material/AutoStoriesRounded';
 import { useAuth } from '../../contexts/AuthContextProvider';
+import { useBooks } from '../../contexts/BookContextProvider';
 
 
 const pages = [
@@ -52,6 +54,24 @@ function ResponsiveAppBar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const { currentUser, handleLogout } = useAuth();
+  const { getBooks } = useBooks();
+
+  const [searchParams, setSearchParams] = useSearchParams()
+  const [search, setSearch] = useState(searchParams.get("q") || "")
+
+  useEffect(() => {
+    getBooks();
+  }, []);
+
+  useEffect(()=>{
+    setSearchParams({
+      q: search
+    })
+    }, [search]);
+
+    useEffect(()=>{
+      getBooks()
+      }, [searchParams, ]);
 
   const navigate = useNavigate();
 
@@ -186,15 +206,7 @@ function ResponsiveAppBar() {
             ))}
           </Box>
           <Box>
-          <Search sx={{marginRight: '15%', color: '#f0c33b'}}>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+          <input className='put' type="text" value={search} onChange={(e) => {setSearch(e.target.value)}} placeholder='Search...' />
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

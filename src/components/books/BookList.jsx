@@ -16,7 +16,7 @@ const BookList = () => {
   // pagination 
  const [page, setPage] = useState(1);
 
- const itemsOnPage = 2;
+ const itemsOnPage = 3;
 
  const count = Math.ceil(books.length / itemsOnPage);
 
@@ -39,7 +39,11 @@ const BookList = () => {
           <BookCard key={item.id} item={item}></BookCard>       
         )) : (null)} 
       </div>
+      <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
+      <div style={{display: 'flex', justifyContent: 'center', width: '23%', background: 'rgb(11,	83,	148, .7)', borderRadius: '20px'}}>
       <Pagination count={count} page={page} onChange={handlePage} />
+      </div>
+      </div>
     </div>
   )
 }

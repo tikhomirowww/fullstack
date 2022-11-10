@@ -58,17 +58,23 @@ const BookDetails = () => {
       <main style={{display: 'flex', background: 'rgb(11,	83,	148, .7)', width: '70%', height: '80%', padding: '2%', borderRadius: '20px', color: '#f0c33b'}}>
         <div className='leftBlock' >
           <img style={{width: "200px"}} src={bookDetails.image} alt="" />
-          <div>{bookDetails.author_name.toUpperCase()}</div>
         </div>
         <div className='rightBlock' style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
           <h1>{bookDetails.title}</h1>
-          <div className='desc' style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', width: '90%'}}>
-          <div>
-            <StarIcon />
-            {bookDetails.rating}
-          </div>
-          <h2>About book:</h2>
-          <div>{bookDetails.description}</div>
+          <div className='desc' style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', width: '90%', marginBottom: '6%'}}>
+          <div style={{display: 'flex', gap: '2%', width: '50%'}}>
+            <h3>Author:</h3>
+            <div>{bookDetails.author_name.toUpperCase()}</div>
+          </div> 
+            <div style={{display: 'flex', width: '50%'}}>
+              <div style={{display: 'flex', margin: '2% 0'}} >
+                <h3 style={{marginRight: '2%'}}>Rating:</h3>
+                {bookDetails.rating !== null ? (<div>{bookDetails.rating}</div>) : (0) }
+              </div>
+                <StarIcon sx={{marginLeft: '2%'}} />
+            </div>
+            <h3>About book:</h3>
+            <div>{bookDetails.description}</div>
           </div>
           <div className='button&rating' style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '25%'}}>
           <Button sx={{background: '#f0c33b'}} variant="contained"><a style={{textDecoration: 'none'}} href={bookDetails.text}>Read online</a></Button>
