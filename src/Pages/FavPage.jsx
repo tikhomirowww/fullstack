@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 const FavPage = () => {
-  const { getFav, fav } = useFav();
+  const { getFav, fav, deleteFromFav } = useFav();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const FavPage = () => {
       </CardContent>
       <div style={{display: 'flex', justifyContent: 'space-between'}}>
       <Button onClick={() => navigate(`/details/${elem.item.id}`)} variant="contained">Details</Button>
-      <Button color='error' variant="contained">Delete</Button>
+      <Button onClick={() => deleteFromFav(elem.item)} color='error' variant="contained">Delete</Button>
       </div>
       </>
     </Card>

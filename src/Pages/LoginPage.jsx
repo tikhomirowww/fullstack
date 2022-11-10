@@ -25,7 +25,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     setError(false);
-    currentEmail(email)
+    // currentEmail(email)
   }, [])
 
   const theme = createTheme({

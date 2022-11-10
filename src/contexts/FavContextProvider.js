@@ -45,6 +45,7 @@ const FavContextProvider = ({ children }) => {
         );
     };
 
+
     localStorage.setItem("fav", JSON.stringify(fav));
 
     console.log('clicked', fav);
@@ -52,11 +53,28 @@ const FavContextProvider = ({ children }) => {
     setFav(fav);
   }
 
+  const deleteFromFav = (book) => {
+    let fav = JSON.parse(localStorage.getItem("fav"));
+
+    if(!fav){
+        fav = {
+            books: []
+        }
+    };
+
+    fav.books = fav.books.filter(
+      (elem) => elem.item.id !== book.id
+    );
+
+    setFav(fav)
+  }
+
   const values = {
     fav,
 
     getFav,
-    addBookToFav
+    addBookToFav,
+    deleteFromFav
   }
 
   return (

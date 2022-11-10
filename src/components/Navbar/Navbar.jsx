@@ -57,7 +57,7 @@ function ResponsiveAppBar() {
   const { getBooks } = useBooks();
 
   const [searchParams, setSearchParams] = useSearchParams()
-  const [search, setSearch] = useState(searchParams.get("q") || "")
+  const [search, setSearch] = useState(searchParams.get("search") || "")
 
   useEffect(() => {
     getBooks();
@@ -65,7 +65,7 @@ function ResponsiveAppBar() {
 
   useEffect(()=>{
     setSearchParams({
-      q: search
+      search: search
     })
     }, [search]);
 
