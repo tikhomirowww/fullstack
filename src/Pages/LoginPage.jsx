@@ -13,7 +13,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
 
   const navigate = useNavigate();
-  const { handleLogin, error, setError } = useAuth();
+  const { handleLogin, error, setError, currentEmail } = useAuth();
 
 
   function handleSave(){
@@ -24,7 +24,8 @@ const LoginPage = () => {
   };
 
   useEffect(() => {
-    setError(false)
+    setError(false);
+    currentEmail(email)
   }, [])
 
   const theme = createTheme({

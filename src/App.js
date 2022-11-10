@@ -10,15 +10,15 @@ import FavContextProvider from './contexts/FavContextProvider'
 const App = () => {
   return (
     <>
+    <BrowserRouter>
       <FavContextProvider>
         <BookContextProvider>
           <AuthContextProvider>
-            <BrowserRouter>
               <MainRoutes/>
-            </BrowserRouter>
           </AuthContextProvider>
         </BookContextProvider>
       </FavContextProvider>
+      </BrowserRouter>
     </>
   )
 }

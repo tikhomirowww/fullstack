@@ -41,96 +41,41 @@ const HomePage = () => {
 
   const data = [
     {
-      src: 'https://cdn.ast.ru/v2/ASE000000000843586/COVER/cover1__w340.jpg',
-      title: 'Собачье серце',
-      description: 'qwerty',
+      src: 'https://libking.ru/uploads/posts/books/438596.jpg',
+      title: 'Он выбрал гвозди',
+      description: '4.36M views',
+      id: 1
     },
     {
-      src: 'https://images.unsplash.com/photo-1527549993586-dff825b37782',
-      title: 'Lake view',
+      src: 'https://www.litmir.me/data/Book/0/225000/225704/BC4_1490700071.jpg',
+      title: 'Он всё ещё двигает камни',
       description: '4.74M views',
+      id: 2
     },
     {
-      src: 'https://images.unsplash.com/photo-1532614338840-ab30cf10ed36',
-      title: 'Mountain view',
+      src: 'https://books.google.kg/books/publisher/content?id=j6d2EAAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&sig=ACfU3U3IvzabIV_3M3X56UFg4TW-LpPYEw&w=1280',
+      title: 'Пять языков любви',
       description: '3.98M views',
+      id: 3
     },
     {
-      src: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236',
-      title: 'Night view',
+      src: 'https://books.google.kg/books/content?id=0EG72orpvgIC&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE71ydr7u8L7eAWV9E_Uq6nIfeX6gzbr-7RzcE4BLeTJLs_qJxPKtFvh_2c9WAPJmaRwftxCl8nVmfEjDvOaqwL3GMGqgRjXkhtx-rXQkFjaDEJJQYwrKCTKbzNRh1dAO9nJFaCJf',
+      title: 'Любовь как образ жизни',
       description: '4.21M views',
+      id: 4
     },
     {
-      src: 'https://images.unsplash.com/photo-1527549993586-dff825b37782',
-      title: 'Lake view',
+      src: 'https://russia-church.com/wp-content/uploads/2017/05/9Uz6xonUvak-201x300.jpg',
+      title: 'История любви, написанная Богом',
       description: '4.74M views',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236',
-      title: 'Night view',
-      description: '4.21M views',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1527549993586-dff825b37782',
-      title: 'Lake view',
-      description: '4.74M views',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1532614338840-ab30cf10ed36',
-      title: 'Mountain view',
-      description: '3.98M views',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236',
-      title: 'Night view',
-      description: '4.21M views',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1527549993586-dff825b37782',
-      title: 'Lake view',
-      description: '4.74M views',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236',
-      title: 'Night view',
-      description: '4.21M views',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1527549993586-dff825b37782',
-      title: 'Lake view',
-      description: '4.74M views',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236',
-      title: 'Night view',
-      description: '4.21M views',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1527549993586-dff825b37782',
-      title: 'Lake view',
-      description: '4.74M views',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1532614338840-ab30cf10ed36',
-      title: 'Mountain view',
-      description: '3.98M views',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236',
-      title: 'Night view',
-      description: '4.21M views',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1527549993586-dff825b37782',
-      title: 'Lake view',
-      description: '4.74M views',
-    },
+      id: 5
+    }
   ];
   
 
   return (
     <div style={{displey: 'flex', flexDirection: 'column', paddingTop: '2%' }}>
-    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '15vh', background: 'rgb(11,	83,	148, .7)', color: '#f0c33b', fontSize: '20px', width: '50%', borderRadius: '20px', margin: 'auto'}}className="center">
+    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '11vh', background: 'rgb(11,	83,	148, .7)', color: '#f0c33b', fontSize: '18px', width: '50%', borderRadius: '20px', margin: 'auto'}}className="center">
       <h1>Your Guide To The World Of Knowledge</h1>
     </div>
     <div style={{display: 'flex', justifyContent: "space-around", alignItems: 'center', height: '50vh', paddingTop: '4%' }}>
@@ -141,7 +86,7 @@ const HomePage = () => {
         <a href="#"> <img src="https://maratapiev.github.io/projectgid/img/Badges%20RUSSIAN.png" alt="" /></a>
         </div>
       </div>
-      <div className='rightBlock' style={{background: 'rgb(11,	83,	148, .7)', color: '#f0c33b', padding: '2%', borderRadius: '20px'}}>
+      <div className='rightBlock' style={{background: 'rgb(11,	83,	148, .7)', color: '#f0c33b', padding: '1%', borderRadius: '20px'}}>
         <div className='title'>
         <h2 style={{textAlign: 'center', fontSize: '30px'}}>Read What Ever You Want <br/>
         Where Ever You Want!</h2>
@@ -173,8 +118,9 @@ const HomePage = () => {
         gap: 1,
         py: 1,
         overflow: 'auto',
-        width: 700,
+        width: 500,
         scrollSnapType: 'x mandatory',
+        padding: '1%',
         '& > *': {
           scrollSnapAlign: 'center',
         },
@@ -184,7 +130,7 @@ const HomePage = () => {
       {data.map((item) => (
         <Card
           row
-          key={item.title}
+          key={item.id}
           variant="outlined"
           sx={{
             gap: 2,
@@ -201,8 +147,8 @@ const HomePage = () => {
               alt={item.title}
             />
           </AspectRatio>
-          <Box sx={{ whiteSpace: 'nowrap' }}>
-            <Typography fontWeight="md">{item.title}</Typography>
+          <Box sx={{ whiteSpace: 'nowrap'}}>
+            <Typography sx={{width: '5%'}} fontWeight="md">{item.title}</Typography>
             <Typography level="body2">{item.description}</Typography>
           </Box>
         </Card>

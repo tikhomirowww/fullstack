@@ -34,6 +34,7 @@ const AuthContextProvider = ({ children}) => {
 
    //login 
    async function handleLogin(formData, email, navigate){
+    console.log(email);
     setLoading(true)
     try{
         const res = await axios.post(`${API}accounts/login/`, formData);
@@ -49,6 +50,12 @@ const AuthContextProvider = ({ children}) => {
         setLoading(false);
     }
   };
+
+  // const currentEmail = (email) => {
+  //   console.log(email);
+  // }
+  // currentEmail();
+  // console.log(currentUser);
 
   // logout 
   function handleLogout(navigate){
@@ -66,7 +73,8 @@ const AuthContextProvider = ({ children}) => {
     setError,
     handleRegister,
     handleLogin,
-    handleLogout
+    handleLogout,
+    // currentEmail
   }
 
   return (

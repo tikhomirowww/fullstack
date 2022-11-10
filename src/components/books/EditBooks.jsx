@@ -17,7 +17,6 @@ const EditBooks = () => {
     },
   });
 
-  
 
   const { getBookDetails, bookDetails, saveEditedBook } = useBooks();
 
@@ -96,7 +95,7 @@ console.log(newBook);
    >
     <ThemeProvider theme={theme}>
     <TextField name='title'  onChange={handleInp} value={book.title} label="Title" variant="standard" />
-    <TextField name='author_name'  onChange={handleInp} value={book.author} label="Author" variant="standard" />
+    <TextField name='author_name'  onChange={handleInp} value={book.author_name} label="Author" variant="standard" />
     <TextField name='category' onChange={handleInp} value={book.category} label="Category" variant="standard" />
     <TextField name='description' onChange={handleInp} value={book.description} label="Description" variant="standard" />
     <TextField name='price' onChange={handleInp} value={book.price} label="Price" variant="standard" />
